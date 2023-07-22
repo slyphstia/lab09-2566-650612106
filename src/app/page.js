@@ -25,6 +25,7 @@ export default function Home() {
   const toggleDoneTask = (taskId) => {
     //structuredClone will copy an array or an object "deeply"
     //So objects within an object will be copied too
+
     const newTasks = structuredClone(tasks);
     //search for a task based on condition
     const task = newTasks.find((x) => x.id === taskId);
@@ -41,7 +42,7 @@ export default function Home() {
       <div style={{ maxWidth: "400px" }} className="mx-auto">
         {/* Task summary */}
         <p className="text-center text-secondary fst-italic">
-          All (...) Done (...)
+          All ({tasks.length}) Done ({tasks.filter(x=>x.completed === true).length})
         </p>
         {/* task input */}
         <TaskInput addTaskFunc={addTask} />
@@ -60,7 +61,7 @@ export default function Home() {
       </div>
 
       {/* //footer section */}
-      <Footer year="2023" fullName="Chayanin Suatap" studentId="12345678" />
+      <Footer year="2023" fullName="Apiwit Boonyarit" studentId="650612106" />
     </div>
   );
 }
